@@ -107,8 +107,11 @@ This sample uses several [Office UI Fabric React components](https://dev.office.
  The sample's People Picker implementation works as follows:
    
    - When the PeoplePicker example loads, the sample sends a request to Microsoft Graph for the top 20 people who are relevant to the current user (first retrieving metadata and then retrieving profile photos). User metadata is mapped to **Persona** objects which are stored in the **_peopleList** array.
-   - When text is entered into the picker, the **_onFilterChanged** method returns the matched results from the people list, which are then displayed as suggested people. 
+   
+   - When text is entered into the picker, the **_onFilterChanged** method returns the matched results from the people list, which are then displayed as suggested people.
+   
    - When the **Search** button is clicked, the **\_onGetMoreResults** method queries Microsoft Graph for the first 20 users whose name starts with the filter text. The results are temporarily added to the people array for use in the **\_onFilterChanged** method.
+   
    - When people are selected or deselected, the **_onSelectionChanged** method updates a local array of selected people.
    
  - [`DetailsList.js`](./src/component-examples/DetailsList.js). Details List example that uses the **DetailsList** component with the **MarqueeSelection** and **Selection** utilities. Also uses components such as **Spinner** and **TextField**.
@@ -116,7 +119,9 @@ This sample uses several [Office UI Fabric React components](https://dev.office.
  The sample's Details List implementation works as follows:
    
    - When the DetailsList example loads, the sample sends a request to Microsoft Graph for the top 100 items in the current user's root drive. The drive item metadata is mapped to list item objects and stored in the **_items** array and saved to state. If the result set is paged, a null entry is added to the item array to trigger a request for the next page of results.
+   
    - When filter text is entered into the text field, the **_onFilterChanged** method updates state with the matched results.
+   
    - When list items are selected or deselected, the **_getSelectionDetails** method is invoked.
    
 The sample also references the Office UI Fabric Core styles in [`index.html`](./public/index.html).
