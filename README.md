@@ -17,7 +17,7 @@ This sample is a simple React app that uses Microsoft Graph data with Office UI 
 
 <img src="./readme-assets/peoplepickerexample.png" alt="Microsoft Graph Office UI Fabric React Sample screenshot" width="500">
 
-The sample uses the [Microsoft Graph JavaScript SDK](https://github.com/microsoftgraph/msgraph-sdk-javascript) to interact with Microsoft Graph, and [HelloJS](https://adodson.com/hello.js/) for authentication with the [Azure AD v2.0 endpoint](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appmodel-v2-overview).
+The sample uses the [Microsoft Graph JavaScript Client Library](https://github.com/microsoftgraph/msgraph-sdk-javascript) to interact with Microsoft Graph, and [HelloJS](https://adodson.com/hello.js/) for authentication with the [Azure AD v2.0 endpoint](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appmodel-v2-overview).
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ This sample app uses [HelloJS](https://adodson.com/hello.js/) for authentication
  >Important! The app implements a very simple authentication model. It reuses the access token until the user signs out or until it receives a 401 'Access token has expired' error, at which time it redirects to the login method. Production apps should construct a more robust way of handling authentication and validation.
 
 ### Microsoft Graph interaction
-This sample uses the [Microsoft Graph JavaScript SDK](https://github.com/microsoftgraph/msgraph-sdk-javascript) to interact with Microsoft Graph. 
+This sample uses the [Microsoft Graph JavaScript Client Library](https://github.com/microsoftgraph/msgraph-sdk-javascript) (SDK) to interact with Microsoft Graph. 
 
  - [`GraphSdkHelper`](./src/helpers/GraphSdkHelper.js). Uses the SDK client to call Microsoft Graph and handle responses. 
  
@@ -125,6 +125,12 @@ This sample uses several [Office UI Fabric React components](https://dev.office.
    - When list items are selected or deselected, the **_getSelectionDetails** method is invoked.
    
 The sample also references the Office UI Fabric Core styles in [`index.html`](./public/index.html).
+
+## Troubleshooting
+
+| Issue | Resolution |
+|:------|:------|
+| Internal Server Errors for cached image queries in Microsoft Edge | If you refresh the browser while using the sample, you may receive HTTP 500 errors (Internal Server Error) for cached profile photo queries. A workaround is to close the sample tab, clear browser cache, and then reopen the sample. |
 
 ## Questions and comments
 
