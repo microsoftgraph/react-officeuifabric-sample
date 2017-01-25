@@ -130,7 +130,8 @@ The sample also references the Office UI Fabric Core styles in [`index.html`](./
 
 | Issue | Resolution |
 |:------|:------|
-| Internal Server Errors for cached image queries in Microsoft Edge | If you refresh the browser while using the sample, you may receive HTTP 500 errors (Internal Server Error) for cached profile photo queries. A workaround is to close the sample tab, clear browser cache, and then reopen the sample. |
+| Internal Server Errors for cached image queries in Microsoft Edge | If you refresh the browser while using the sample, you may receive HTTP 500 errors (Internal Server Error) for cached profile photo queries. A workaround is to close the sample tab, clear browser cache, and then reopen the sample. |  
+| Syntax error in IE | The Microsoft Graph JavaScript Client Library uses ES6 promises. Related PR: [microsoftgraph/msgraph-sdk-javascript#29](https://github.com/microsoftgraph/msgraph-sdk-javascript/pull/29) |
 
 ## Questions and comments
 
