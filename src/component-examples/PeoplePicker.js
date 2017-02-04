@@ -15,7 +15,8 @@ export default class PeoplePickerExample extends Component {
     super();
 
     // Set the initial state for the picker data source.
-    this._peopleList = [];
+    // The people list is populated in the _onFilterChanged function.
+    this._peopleList = null;
     this._searchResults = [];
 
     // Helper that uses the JavaScript SDK to communicate with Microsoft Graph.
@@ -27,31 +28,6 @@ export default class PeoplePickerExample extends Component {
       isLoadingPeople: true,
       isLoadingPics: true
     };
-  }
-
-  // Populate the people list.
-  componentWillMount() {
-    this.sdkHelper.getPeople((err, people) => {
-      if (!err) {
-        this._peopleList = this._mapUsersToPersonas(people, false);
-        this._getPics(this._peopleList);
-      }
-      else this._showError(err);
-    });
-  }
-
-  _getPics(personas) {
-    
-    // Make suggestions available before retrieving profile pics.
-    this.setState({
-      isLoadingPeople: false
-    });
-    
-    this.sdkHelper.getProfilePics(personas, (err) => {
-      this.setState({
-        isLoadingPics: false
-      });
-    });
   }
 
   // Map user properties to persona properties.
@@ -71,6 +47,21 @@ export default class PeoplePickerExample extends Component {
       persona.props = { id: p.id };
 
       return persona;
+    });
+  }
+
+  // Gets the profile photo for each user.
+  _getPics(personas) {
+    
+    // Make suggestions available before retrieving profile pics.
+    this.setState({
+      isLoadingPeople: false
+    });
+    
+    this.sdkHelper.getProfilePics(personas, (err) => {
+      this.setState({
+        isLoadingPics: false
+      });
     });
   }
 
@@ -97,10 +88,25 @@ export default class PeoplePickerExample extends Component {
   }
 
   // Handler for when text is entered into the picker control.
+  // Populate the people list.
   _onFilterChanged(filterText, items) {
-    return filterText ? this._peopleList.concat(this._searchResults)
-      .filter(item => item.primaryText.toLowerCase().indexOf(filterText.toLowerCase()) === 0)
-      .filter(item => !this._listContainsPersona(item, items)) : [];
+    if (this._peopleList) {
+      return filterText ? this._peopleList.concat(this._searchResults)
+        .filter(item => item.primaryText.toLowerCase().indexOf(filterText.toLowerCase()) === 0)
+        .filter(item => !this._listContainsPersona(item, items)) : [];
+    } 
+    else {
+      return new Promise( (resolve, reject) => this.sdkHelper.getPeople((err, people) => {
+        if (!err) {
+          this._peopleList = this._mapUsersToPersonas(people, false);
+          this._getPics(this._peopleList);
+          resolve(this._peopleList);
+        }
+        else { this._showError(err); }
+      })).then(value => value.concat(this._searchResults)
+        .filter(item => item.primaryText.toLowerCase().indexOf(filterText.toLowerCase()) === 0)
+        .filter(item => !this._listContainsPersona(item, items)));
+    }
   }
 
   // Remove currently selected people from the suggestions list.
