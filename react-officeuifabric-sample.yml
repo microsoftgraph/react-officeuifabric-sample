@@ -1,0 +1,20 @@
+### YamlMime:Sample
+sample:
+- name: Microsoft Graph Office UI Fabric React Sample
+  path: ''
+  description: This sample demonstrates how to populate Office UI Fabric React components with data retrieved from Microsoft Graph.
+  readme: ''
+  generateZip: FALSE
+  isLive: TRUE
+  technologies:
+  - Office UI Fabric
+  - Microsoft Graph
+  azureDeploy: ''
+  author: jamescro
+  platforms: []
+  languages:
+  - JavaScript
+  extensions:
+    products:
+    - Office 365
+    scenarios: []
