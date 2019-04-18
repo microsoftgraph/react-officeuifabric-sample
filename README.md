@@ -23,29 +23,33 @@ The sample uses the [Microsoft Graph JavaScript Client Library](https://github.c
 
 This sample requires the following:  
 
-  * [Node.js](https://nodejs.org/). Node is required to run the sample on a development server and to install dependencies. 
-
-  * A [work or school account](https://dev.office.com/devprogram)
+* [Node.js](https://nodejs.org/). Node is required to run the sample on a development server and to install dependencies.
+* A [work or school account](https://dev.office.com/devprogram)
   
 ## Register the application
 
-1. Sign into the [Application Registration Portal](https://apps.dev.microsoft.com/) using either a personal or work or school account.
+1. Navigate to the Azure portal [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 
-2. Choose **Add an app**.
+2. Choose **New registration**.
 
-3. Enter a name for the app, and choose **Create application**.  
-    
-   The registration page displays, listing the properties of your app.
+3. When the **Register an application page** appears, enter your application's registration information:
 
-4. Copy the Application Id. This is the unique identifier for your app. You'll use this value to configure your app. 
+    * In the **Name** section, enter the application name, for example `MyReactSample`
+    * Change **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**.
+    * In the Redirect URI (optional) section, select **Web** in the combo-box and enter the following redirect URI: `https://localhost:3000/`.
 
-5. Under **Platforms**, choose **Add Platform**.
+4. Select **Register** to create the application.
 
-6. Choose **Web**.
+   The registration overview page displays, listing the properties of your app.
 
-7. Make sure the **Allow Implicit Flow** check box is selected, and enter *http://localhost:3000/* as the Redirect URI. 
+5. Copy the **Application (client) ID** and record it. This is the unique identifier for your app. You'll use this value to configure your app.
 
-8. Choose **Save**.
+6. Select the **Authentication** section.
+    * In the **Advanced settings** | **Implicit grant** section, check **Access tokens** and **ID tokens** as this sample requires
+    the [Implicit grant flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to be enabled to
+    sign in the user and call an API.
+
+7. Select **Save**.
 
 ## Build and run the sample
 
