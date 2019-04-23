@@ -11,12 +11,13 @@
 
 import React, { Component } from 'react';
 import hello from 'hellojs';
-window.hello = hello;
 import GraphSdkHelper from './helpers/GraphSdkHelper';
 import { CommandBar } from 'office-ui-fabric-react/lib/CommandBar';
 import PeoplePickerExample from './component-examples/PeoplePicker';
 import DetailsListExample from './component-examples/DetailsList';
 import { applicationId, redirectUri } from './helpers/config';
+
+window.hello = hello;
 
 export default class App extends Component {
   constructor(props) {

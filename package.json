@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "^0.8.4"
+    "react-scripts": "3.0.0"
   },
   "dependencies": {
     "async": "^2.1.4 ",
     "hellojs": "^1.14.0",
-    "msgraph-sdk-javascript": "~0.3.1",
+    "msgraph-sdk-javascript": "^0.3.1",
     "office-ui-fabric-react": "^0.82.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
@@ -18,5 +18,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
