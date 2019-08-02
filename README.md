@@ -1,3 +1,21 @@
+---
+page_type: sample
+products:
+- office-365
+- ms-graph
+languages:
+- javascript
+extensions:
+  contentType: samples
+  technologies:
+  - Microsoft Graph
+  - Office UI Fabric
+  services:
+  - Office 365
+  platforms:
+  - React
+  createdDate: 1/6/2017 9:41:30 AM
+---
 # Microsoft Graph Office UI Fabric React Sample
 
 ## Table of contents
