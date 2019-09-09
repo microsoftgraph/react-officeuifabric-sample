@@ -6,7 +6,7 @@ products:
 languages:
 - javascript
 extensions:
-  contentType: samples
+  contentType: samples 
   technologies:
   - Microsoft Graph
   - Office UI Fabric
