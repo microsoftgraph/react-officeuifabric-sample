@@ -5,6 +5,7 @@ products:
 - ms-graph
 languages:
 - javascript
+description: "This sample demonstrates how to populate Office UI Fabric React components with data retrieved from Microsoft Graph."
 extensions:
   contentType: samples 
   technologies:
